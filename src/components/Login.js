@@ -1,16 +1,17 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { checkvalidation } from "../utils/validate";
 import { auth } from "../utils/firebase";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { BgImg } from "../utils/constants";
+
 const Login = () => {
 
 //created state variables update the state
 
     const [isSignInForm, setSignInForm] = useState(true);
     const [errormessage , seterrormessage] = useState(null);
-    const navigate = useNavigate();
   
 // Intially we set the value to null in use reference
     const email = useRef(null);
@@ -21,17 +22,17 @@ const Login = () => {
     
 // created a buttonclick function that checks validation after the click on submit button
     const buttonclick=()=>{
-       if(!isSignInForm){
+       
+        let message = "";
+        if(!isSignInForm){
         const message = checkvalidation(fname.current.value, lname.current.value,email.current.value,password.current.value);
-        seterrormessage(message);
-
        }
        else{
        const message = checkvalidation(email.current.value,password.current.value);
-       seterrormessage(message);
-       if(message) return;
        }
-       
+       seterrormessage(message);
+
+       if(message) return;
 
        if(!isSignInForm){
         createUserWithEmailAndPassword(
@@ -41,8 +42,6 @@ const Login = () => {
         .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        console.log(user)
-        navigate("/browse")
   })
         .catch((error) => {
         const errorCode = error.code;
@@ -53,10 +52,7 @@ const Login = () => {
        else{
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
-         // Signed in 
         const user = userCredential.user;
-        console.log(user);
-        navigate("/browse")
 
   })
         .catch((error) => {
@@ -75,7 +71,9 @@ const Login = () => {
             <Header/>
             <div className="absolute">
             <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/41c789f0-7df5-4219-94c6-c66fe500590a/af676bd6-ca61-4cb3-ad8a-bd817d320741/US-en-20240513-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt="img"/>
+            src={BgImg} 
+            alt="img"
+            />
             </div>
             <form onSubmit={(e)=> e.preventDefault()} className="w-3/12 p-10 right-0 my-40 left-0 bg-black mx-auto absolute text-white bg-opacity-80 ">
                 
