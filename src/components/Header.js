@@ -12,12 +12,12 @@ const Header = () =>{
     const navigate = useNavigate()
     const user = useSelector((store) => store.user)
     const dispatch = useDispatch();
+    
     const signoutbtn = ()=>{
     
         signOut(auth).then(() => {
         
         }).catch((error) => {
-        
         
         });
         }

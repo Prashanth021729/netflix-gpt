@@ -15,3 +15,12 @@ export const API_Options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1Y2FiOWFkYzBlODBhYmY3OTFhMDZhYWZkNWQxMWQ1YSIsInN1YiI6IjY2NGViOTdkOTc3MTE0YjE1OWRkMzFmZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.26evaTsXZIE2ooBfNQLCB61nD6t8UV2NEUOETZUR6Ck'
     }
   };
+
+//icon for more info
+
+export const icon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+<path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+</svg>
+
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500"

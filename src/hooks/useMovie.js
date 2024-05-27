@@ -18,7 +18,7 @@ const useMovie = (movieid) =>{
     useEffect(()=>{
         getMovieVideos();
 
-    },[])
+    },[]);
 
 };
 
