@@ -9,8 +9,8 @@ import { Icon, Logo } from "../utils/constants";
 
 const Header = () =>{
     
-    const navigate = useNavigate()
-    const user = useSelector((store) => store.user)
+    const navigate = useNavigate();
+    const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
     
     const signoutbtn = ()=>{
@@ -48,15 +48,17 @@ const Header = () =>{
             {user &&(
             <div className="flex " >
                 <img
-                className=" mt-2 mr-2 w-14 h-14"
+                className=" mt-2 mr-4 w-14 h-14"
                 src={Icon} 
                 alt="icon" />
+                <div>
                 <button 
                 type="submit" 
                 onClick={signoutbtn}
-                className="font-bold text-red-600"> 
-                SIGN OUT
+                className="font-bold bg-red-500 text-white p-2 mt-4 rounded"> 
+                Logout
                 </button>
+                </div>
             </div>
             )}
         </div>
